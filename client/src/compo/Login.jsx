@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useAuth } from '../AuthProvider';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const { login } = useAuth();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +27,7 @@ export const Login = () => {
       }
 
       login(data.token);
-      navigate('/dashboard');
+      // navigate('/dashboard');
     } catch (err) {
       setError(err.message);
     }

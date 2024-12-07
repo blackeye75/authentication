@@ -14,11 +14,15 @@ mongoose.connect('mongodb://localhost:27017/auth_demo', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
+console.log("MOngodb connected");
+
 
 // Registration endpoint
 app.post('/api/register', async (req, res) => {
     try {
       const { username, email, password } = req.body;
+      console.log(username,email);
+      
       
       // Check if user already exists
       const userExists = await User.findOne({ $or: [{ email }, { username }] });
@@ -47,6 +51,8 @@ app.post('/api/register', async (req, res) => {
       );
   
       res.status(201).json({ token });
+      console.log(user);
+      
     } catch (error) {
         console.log(error.message);
       res.status(500).json({ message: 'Server error' });

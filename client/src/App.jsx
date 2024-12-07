@@ -6,9 +6,9 @@ function App() {
 
   return (
     <div className='w-full h-screen bg-[#121212]' >
-   {/* <Login/> */}
-   <h1>hello</h1>
-   <Register/>
+   <Login/>
+   {/* <h1>hello</h1> */}
+   <Register/> 
     </div>
   )
 }
